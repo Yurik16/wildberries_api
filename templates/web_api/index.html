@@ -1,5 +1,5 @@
 {% extends 'web_api/base.html' %}
-{% block title %}Home{% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
 {% block content %}
     <div class="jumbotron">
         <h1 class="display-4">Hello {{ user.username }}!</h1>
