@@ -20,8 +20,8 @@ Before run parser.py move to working folder and install all packages from requir
 </ul>
 
 ## Usage
-Starting development server at http://127.0.0.1:8000/
-To get singe response from api use http://127.0.0.1:8000/api/<int:pk>/
+Starting development server at http://127.0.0.1:8000/ <br>
+To get singe response from api use http://127.0.0.1:8000/api/`<int:pk>`/
 
 Soon it would be able to  use that API on AWS ES2 instance or another remote web server
 
