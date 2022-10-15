@@ -1,0 +1,24 @@
+{% extends 'web_api/base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Hello {{ user.username }}!</h1>
+        <p class="lead">This is a simple api, for quick search goods at Wildberries.ru by article number.</p>
+        <hr class="my-4">
+        <p>You can enter single number or download xlsx file.</p>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Enter article number" aria-label="Recipient's username"
+                   aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">Find</button>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <input class="form-control" type="file" id="formFile">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">Find</button>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
