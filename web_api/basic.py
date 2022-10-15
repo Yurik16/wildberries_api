@@ -7,8 +7,9 @@ from pydantic import BaseModel, Field
 
 main_api = "https: // card.wb.ru / cards / detail?spp = 0 & regions = 80, 68, 64, 83, 4, 38, 33, 70, 82, 69, 86, 75, 30, 40, 48, 1, 22, 66, 31, 71 & pricemarginCoeff = 1.0 & reg = 0 & appType = 1 & emp = 0 & locale = ru & lang = ru & curr = rub & couponsGeo = 12, 3, 18, 15, 21 & dest = -1029256, -102269, -2162196, -1257786 & nm ="
 
-sky = 73512949
-dress = 73512955
+
+# sky = 73512949
+# dress = 73512955
 
 
 class Color(BaseModel):
@@ -76,5 +77,4 @@ def get_product_data(arcitle: int):
     prod = model.data.products
     return {'brand': prod[0].brand, 'article': prod[0].article, 'title': prod[0].title}
 
-
-print(get_product_data(73512955))
+# print(get_product_data(73512955))
