@@ -21,3 +21,8 @@ def index(request):
 def apiOverview(request, pk):
     result = get_product_data(pk)
     return Response(result)
+
+
+def get_single_request(request):
+    if request.method == 'POST':
+        pass
