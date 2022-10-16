@@ -6,13 +6,17 @@
         <p class="lead">This is a simple api, for quick search goods at Wildberries.ru by article number.</p>
         <hr class="my-4">
         <p>You can enter single number or download xlsx file.</p>
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Enter article number" aria-label="Recipient's username"
-                   aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">Find</button>
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input id="article" type="text" class="form-control" placeholder="Enter article number" name="article" maxlength="12" required
+                       aria-label="Article"
+                       aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Find</button>
+                </div>
             </div>
-        </div>
+        </form>
         <div class="input-group mb-3">
             <input class="form-control" type="file" id="formFile">
             <div class="input-group-append">

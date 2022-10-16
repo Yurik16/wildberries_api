@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import concurrent.futures
 from typing import List, Optional
 
 import requests
@@ -69,12 +70,28 @@ class Model(BaseModel):
     data: Data
 
 
-def get_product_data(arcitle: int):
-    url = str(main_api).replace(" ", "") + str(arcitle)
+def get_product_data(article: int):
+    url = str(main_api).replace(" ", "") + str(article)
     response = requests.get(url)
     r = response.content
     model = Model.parse_raw(r)
     prod = model.data.products
     return {'brand': prod[0].brand, 'article': prod[0].article, 'title': prod[0].title}
 
+
+def get_products_data_from_file(file):
+    article_list = []
+    product_list = []
+    # list_of_art = [73512949, 73512955]
+    with open(file) as f:
+        for elem in f.readlines():
+            article_list.append(elem.strip())
+    with concurrent.futures.ThreadPoolExecutor() as exec:
+        for art in article_list:
+            product_list.append(exec.submit(get_product_data, article=art))
+        result = [future.result() for future in concurrent.futures.as_completed(product_list)]
+        return result
+
+
 # print(get_product_data(73512955))
+# print(get_products_data_from_file('list.txt'))
