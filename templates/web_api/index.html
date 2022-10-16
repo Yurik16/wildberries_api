@@ -7,9 +7,10 @@
         <hr class="my-4">
         <p>You can enter single number or download xlsx file.</p>
         <form method="post">
+            {% csrf_token %}
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Enter article number"
-                       aria-label="Recipient's username"
+                <input id="article" type="text" class="form-control" placeholder="Enter article number" name="article" maxlength="12" required
+                       aria-label="Article"
                        aria-describedby="basic-addon2">
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="submit">Find</button>
